@@ -1,6 +1,6 @@
 # ROS noetic docker template
 
-This project is a template for running a general ros noetic in a docker container, with gui support. It is ment to be a quick template to easy set up a ros noetic environment for testing puposes.
+This project is a template for running a general ros noetic image in a docker container, with gui support. It is ment to be a quick template to easy set up a ros noetic environment for testing puposes.
 
 ### Prerequisites
  - todo
