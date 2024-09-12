@@ -1,0 +1,7 @@
+.env
+workspace/.*
+
+**/*.bag
+
+**/devel
+**/build
