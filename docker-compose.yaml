@@ -1,0 +1,30 @@
+
+services:
+  ros:
+    image: ros-noetic-image
+    container_name: ros-noetic-container
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DISPLAY=$DISPLAY
+      - LIBGL_ALWAYS_SOFTWARE=1
+      - XDG_RUNTIME_DIR=/tmp
+      - ROS_MASTER_URI=http://$MASTER_IP:11311
+      - ROS_IP=$LOCAL_IP
+
+    volumes:
+      - /etc/group:/etc/group:ro
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/shadow:/etc/shadow:ro
+      - /etc/sudoers.d:/etc/sudoers.d:ro
+      - /tmp/.X11-unix/:/tmp/.X11-unix/:rw # Display x11
+      - ./workspace:/home/$USER
+
+    stdin_open: true
+    tty: true
+    user: ${UGID}
+    network_mode: host
+    command: /usr/bin/bash -c "source /opt/ros/noetic/setup.bash && roscore"
+
+

@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+DOCKER_HOSTNAME=`docker inspect --format '{{ .Config.Hostname }}' ros-noetic-container`
+
+echo "Opening xhost for docker conatiner: $DOCKER_HOSTNAME"
+xhost +local:$DOCKER_HOSTNAME
+echo "starting ros-noetic container"
+docker compose up
+
+# Dissable xhost access when closing
+echo "Closing xhost for docker conatiner: $DOCKER_HOSTNAME"
+xhost -local:$DOCKER_HOSTNAME
+
