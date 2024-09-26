@@ -18,7 +18,9 @@ RUN apt-get update && apt-get install -y\
     python3-wstool\
     build-essential\
     libopencv-dev\
-    python3-opencv
+    python3-opencv\
+    clang\
+    bear
 
 WORKDIR /home/$USER
 
