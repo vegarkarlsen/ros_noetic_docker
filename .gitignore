@@ -2,6 +2,6 @@
 workspace/.*
 
 **/*.bag
-
+**/log
 **/devel
 **/build
